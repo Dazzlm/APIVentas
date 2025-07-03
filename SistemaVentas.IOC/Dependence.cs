@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaVentas.DAL.Repositories.Contract;
+using SistemaVentas.DAL.Repositories;
+using SistemaVentas.Utility;
 
 namespace SistemaVentas.IOC
 {
@@ -14,10 +17,14 @@ namespace SistemaVentas.IOC
     {
         public static void InjectDependencies(this IServiceCollection services,IConfiguration configuration)
         {
-            services.AddDbContext<DbventaContext>(options =>
+            services.AddDbContext<DbVentaContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("CadenaSQL"));
             });
+
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IVentaRepository, VentaRepository>(); 
+            services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperProfile>());
         }
     }
 }
