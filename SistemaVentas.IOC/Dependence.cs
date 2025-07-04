@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using SistemaVentas.DAL.Repositories.Contract;
 using SistemaVentas.DAL.Repositories;
 using SistemaVentas.Utility;
+using SistemaVentas.BLL.Services;
+using SistemaVentas.BLL.Services.Contract;
 
 namespace SistemaVentas.IOC
 {
@@ -25,6 +27,14 @@ namespace SistemaVentas.IOC
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IVentaRepository, VentaRepository>(); 
             services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperProfile>());
+            services.AddScoped<IRolService, RolService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<IProductoService, ProductoService>();
+            services.AddScoped<IVentaService, VentaService>();
+            services.AddScoped<IDashBoardService, DashBoardService>();
+            services.AddScoped<IMenuService, MenuService>();
+
         }
     }
 }

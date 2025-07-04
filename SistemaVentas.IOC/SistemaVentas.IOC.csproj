@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SistemaVentas.BLL\SistemaVentas.BLL.csproj" />
     <ProjectReference Include="..\SistemaVentas.DAL\SistemaVentas.DAL.csproj" />
     <ProjectReference Include="..\SistemaVentas.Utility\SistemaVentas.Utility.csproj" />
   </ItemGroup>

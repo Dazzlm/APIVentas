@@ -11,7 +11,7 @@ namespace SistemaVentas.DAL.Repositories.Contract
         Task<TModel?> Get(Expression<Func<TModel, bool>> filter);
         IQueryable<TModel> Consult(Expression<Func<TModel, bool>>? filter = null);
         Task<TModel> Create(TModel model);
-        Task<bool> Edit(TModel model);
+        Task<bool> Update(TModel model);
         Task<bool> Delete(TModel model);
         
     }

@@ -15,8 +15,6 @@ namespace SistemaVentas.DAL.Repositories
     {
         private readonly DbVentaContext _dbcontext;
 
-
-
         public GenericRepository(DbVentaContext context)
         {
             _dbcontext = context;
@@ -63,7 +61,7 @@ namespace SistemaVentas.DAL.Repositories
             }
         }
 
-        public async Task<bool> Edit(TModel model)
+        public async Task<bool> Update(TModel model)
         {
             try
             {
