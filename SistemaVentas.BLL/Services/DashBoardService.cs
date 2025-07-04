@@ -27,7 +27,7 @@ namespace SistemaVentas.BLL.Services
             _mapper = mapper;
         }
 
-        public async Task<DashBoardDTO> summary()
+        public async Task<DashBoardDTO> Summary()
         {
 
             DashBoardDTO vmDashBoard = new DashBoardDTO();

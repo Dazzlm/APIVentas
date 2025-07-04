@@ -9,7 +9,7 @@ namespace SistemaVentas.BLL.Services.Contract
     public interface IDashBoardService
     {
 
-        Task<DashBoardDTO> summary();
+        Task<DashBoardDTO> Summary();
 
     }
 }

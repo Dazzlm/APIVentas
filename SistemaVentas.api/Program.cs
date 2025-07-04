@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Options;
 using SistemaVentas.IOC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.InjectDependencies(builder.Configuration);
+builder.Services.AddCors(options=>
+    options.AddPolicy("React", app => {
+        app.AllowAnyHeader()
+           .AllowAnyMethod()
+           .WithOrigins("http://localhost:3000"); 
+    })    
+);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,7 +28,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("React");
 app.UseAuthorization();
 
 app.MapControllers();

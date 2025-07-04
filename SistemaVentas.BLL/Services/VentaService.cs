@@ -45,7 +45,7 @@ namespace SistemaVentas.BLL.Services
                 throw new Exception("Error al registrar la venta", ex);
             }
         }
-        public async Task<List<VentaDTO>> Record(string filter, string numeroVenta, string numberSales, string startDate, string EndDate)
+        public async Task<List<VentaDTO>> Record(string filter, string numberSales, string startDate, string EndDate)
         {
             IQueryable<Venta> query = _ventaRepository.Consult();
             List<Venta> ventaList = new List<Venta>();
